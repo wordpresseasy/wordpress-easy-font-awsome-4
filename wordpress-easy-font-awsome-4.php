@@ -36,6 +36,7 @@ class WPEFAF
     {
         register_activation_hook(__FILE__, array(&$this, 'install_WPEFAF'));
         add_action('init', array(&$this, 'init_WPEFAF'));
+        wp_enqueue_style('FontAwsome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array());
     }
 
     function install_WPEFAF()
@@ -44,16 +45,9 @@ class WPEFAF
 
     function init_WPEFAF()
     {
-        $this->register_scripts_and_styles();
 
     }
 
-    private function register_scripts_and_styles()
-    {
-
-            $this->load_file(self::slug . '-style', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-
-    }
 
     private function load_file($name, $file_path, $is_script = false)
     {
