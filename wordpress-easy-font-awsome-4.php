@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: WPEFAF
+Plugin Name: Wordpress Easy Font Awsome 4
 Plugin URI: http://wordpresseasy.uk
 Description:  Easy Plugin for Font Awsome in Wordpress
 Version: 0.1
