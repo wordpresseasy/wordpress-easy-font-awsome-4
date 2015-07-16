@@ -3,7 +3,7 @@
 /*
 Plugin Name: WPEFAF
 Plugin URI: http://wordpresseasy.uk
-Description:
+Description:  Easy Plugin for Font Awsome in Wordpress
 Version: 0.1
 Author: Mark Anthony Jones
 Author Email: mark@wordpresseasy.uk
@@ -45,38 +45,13 @@ class WPEFAF
     function init_WPEFAF()
     {
         $this->register_scripts_and_styles();
-        add_shortcode('my_shortcode', array(&$this, 'render_shortcode'));
-        if (is_admin()) {
-        } else {
-        }
-        add_action('your_action_here', array(&$this, 'action_callback_method_name'));
-        add_filter('your_filter_here', array(&$this, 'filter_callback_method_name'));
-    }
 
-    function action_callback_method_name()
-    {
-    }
-
-    function filter_callback_method_name()
-    {
-    }
-
-    function render_shortcode($atts)
-    {
-        extract(shortcode_atts(array(
-            'attr1' => 'foo',
-            'attr2' => 'bar'
-        ), $atts));
     }
 
     private function register_scripts_and_styles()
     {
-        if (is_admin()) {
-            $this->load_file(self::slug . '-admin-script', '/js/admin.js', true);
-            $this->load_file(self::slug . '-admin-style', '/css/admin.css');
-        } else {
-            $this->load_file(self::slug . '-script', '/js/widget.js', true);
-            $this->load_file(self::slug . '-style', '/css/widget.css');
+        if (!is_admin()) {
+            $this->load_file(self::slug . '-style', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
         }
     }
 
@@ -88,7 +63,7 @@ class WPEFAF
 
         if (file_exists($file)) {
             if ($is_script) {
-                wp_register_script($name, $url, array('jquery')); //depends on jquery
+                wp_register_script($name, $url, array('jquery'));
                 wp_enqueue_script($name);
             } else {
                 wp_register_style($name, $url);
