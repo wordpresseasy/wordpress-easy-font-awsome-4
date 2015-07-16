@@ -50,9 +50,9 @@ class WPEFAF
 
     private function register_scripts_and_styles()
     {
-        if (!is_admin()) {
+
             $this->load_file(self::slug . '-style', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-        }
+
     }
 
     private function load_file($name, $file_path, $is_script = false)
